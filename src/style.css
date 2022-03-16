@@ -1,0 +1,13 @@
+body
+{
+background: <img src="Images/dh.jpg" alt="deathly hollows" id="deathlyHollows" width="800px">;
+}
+
+
+#deathlyHollows
+{
+margin: 0 auto;
+padding-top: 10px;
+display: block;
+}
+
