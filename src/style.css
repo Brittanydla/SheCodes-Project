@@ -1,13 +1,30 @@
-body
+#search-city
 {
-background: <img src="Images/dh.jpg" alt="deathly hollows" id="deathlyHollows" width="800px">;
+    display: inline-block;
+    margin: 0 auto;
+    margin-top: 80px;
+    width: 300px;
+    border-radius: 4px;
+    background-color: transparent;
+    color: black;
+    
 }
 
-
-#deathlyHollows
+#search-button
 {
-margin: 0 auto;
-padding-top: 10px;
-display: block;
+    color: gold;
+    background-color: maroon;
+    border: 1px solid;
+    border-radius: 6px;
+    transition: all 0.2s ease-in-out;
+    
 }
+
+#search-button:hover
+{
+   
+    box-shadow: 4px -5px 16px 3px #F7FCFC,  -5px 5px 16px 1px #E8EFEE;
+    background-color: #AA2B1D;
+    cursor: url(https://cur.cursors-4u.net/user/use-1/use160.cur), auto !important;
+} 
 
