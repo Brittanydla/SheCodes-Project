@@ -1,9 +1,7 @@
 .container
 {
-    width: 400%;
+    width: 500%;
 }
-
-
 #search-input
 {
     display: inline-block;
@@ -88,7 +86,7 @@
 {
     text-align: right;
     font-size: 30px;
-    font-weight:bolder;
+    font-weight:bold;
     text-shadow: white 5px 6px 9px, 0 0 1em white,  0 0 0.2em white;
 }
 
