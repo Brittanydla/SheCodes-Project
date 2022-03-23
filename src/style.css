@@ -1,15 +1,23 @@
-.container
+
+
+.header
 {
-    width: 500%;
+    text-align: center;
+    margin-top: 35px;
+    font-size: 44px;
+
 }
+
+
 #search-input
 {
     display: inline-block;
     margin: 0 auto;
-    margin-top: 40px;
+    margin-top: 90px;
     width: 300px;
     font-size: 35px;
-    height: 40px;
+    line-height: 53px;
+    height: 52px;
     border-radius: 4px;
     background-color: transparent;
     color: black;
@@ -23,6 +31,7 @@
     border: 1px solid;
     border-radius: 6px;
     transition: all 0.2s ease-in-out;
+    font-size: 20px;
     
 }
 
@@ -36,7 +45,7 @@
 
 #current
 {
-   
+   font-size: 20px;
    box-sizing: border-box;
     color: gold;
     background-color: maroon;
@@ -52,7 +61,7 @@
     background-color: #AA2B1D;
 }
 
-.cityName
+#city
 {
     text-align: left;
     display: block;
@@ -60,7 +69,6 @@
     position:relative ;
     top: -725px;
     left: 25px;
-    
 }
 
 #list-one
@@ -92,7 +100,7 @@
 
 #list-two
 {
-    display: inline;
+    
     position: relative;
     list-style: none;
     left: 500px;
