@@ -1,28 +1,22 @@
+function formatDate(timestamp)
+{
+let date= new Date(timestamp);
+let hours = date.getHours();
+if (hours <10)
+{hours = `0${hours}`;}
+
+let minutes = date.getMinutes();
+if (minutes <10)
+{
+  minutes= `0${minutes}`;
+}
+
+let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+let day= days[date.getDay()];
+return `${day} ${hours}: ${minutes}`;
+}
 
 
-//date
-let now = new Date();
-let hour = now.getHours();
-let min = now.getMinutes();
-let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
-let day = days[now.getDay()];
-let months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December"
-];
-
-let month = months[now.getMonth()];
-let today = document.querySelector("li.day");
-today.innerHTML = `${month} ${day} ${hour}:${min}`;
 
 function displayTempurature (response)
 {
@@ -37,6 +31,10 @@ function displayTempurature (response)
   humidity.innerHTML=response.data.main.humidity;
   let windSpeed = document.querySelector("#wind");
   windSpeed.innerHTML= Math.round(response.data.wind.speed);
+  let dateElement= document.querySelector("#day");
+  dateElement.innerHTML= formatDate (response.data.dt *1000);
+  let iconElement =document.querySelector("#icon");
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 let apiKey= "5dad882459b91a0858b2f948bcddd14d";
