@@ -35,7 +35,7 @@ function displayTempurature (response)
   dateElement.innerHTML= formatDate (response.data.dt *1000);
   let iconElement =document.querySelector("#icon");
   iconElement.setAttribute("alt", response.data.weather[0].description);
-
+  iconElement.setAttribute("src", `Images/${response.data.weather[0].icon}.png`);
   celsiusTemp =response.data.main.temp
 
 }
