@@ -16,6 +16,29 @@ let day= days[date.getDay()];
 return `${day} ${hours}: ${minutes}`;
 }
 
+function displayforecast ()
+{
+  let forecastElement = document.querySelector("#forecast");
+
+let forecastHTML=`<div class="row">`;
+let days =["Tue", "Wed", "Thurs" ,"Fri", "Sat"];
+
+days.forEach(function(day){
+  forecastHTML= forecastHTML +
+`<div class="col-2"> ${day}
+    <div class="wFI"> <img  src="Images/01d.png" alt="sunny" width="75"/> </div>
+    <div class="weather-forecast-tempurature"> 
+    <span class="weather-forecast-temp-max"> 32° </span> 
+    <span class="weather-forecast-temp-min"> 18° </span>
+</div> 
+</div>`;
+});
+
+forecastHTML =forecastHTML + `</div>`;
+forecastElement.innerHTML = forecastHTML;
+
+}
+
 
 
 function displayTempurature (response)
@@ -39,6 +62,8 @@ function displayTempurature (response)
   celsiusTemp =response.data.main.temp
 
 }
+
+
 
 function search (city)
 {
@@ -74,6 +99,7 @@ function showCelsiusTemp(event)
 
 let celsiusTemp = null;
 
+displayforecast();
 
 let form = document.querySelector("#search-city");
 form.addEventListener("submit", handleSubmit);
