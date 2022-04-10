@@ -38,7 +38,7 @@ forecast.forEach(function(forecastDay, index){
   if (index < 6) {
   forecastHTML= forecastHTML +
 `<div class="col-2"> ${formatDay(forecastDay.dt)}
-    <div class="wFI"> <img  src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="weather icon" width="75"/> </div>
+    <div class="wFI"> <img src="Images/${forecastDay.weather[0].icon}.png" alt="" id="future-icon" width="120px" /> </div>
     <div class="weather-forecast-tempurature"> 
     <span class="weather-forecast-temp-max"> ${Math.round(forecastDay.temp.max)}° </span> 
     <span class="weather-forecast-temp-min"> ${Math.round(forecastDay.temp.min)}° </span>
