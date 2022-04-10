@@ -55,15 +55,16 @@ forecastElement.innerHTML = forecastHTML;
 function getForecast(coordinates) {
   console.log(coordinates);
   let apiKey= "5dad882459b91a0858b2f948bcddd14d";
-  let apiURL= `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  let apiURL= `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
   axios.get(apiURL).then(displayforecast);
 }
 
 function displayTempurature (response)
 {
+  
   console.log(response.data);
   let tempurature= document.querySelector("#temp");
-  tempurature.innerHTML= Math.round(celsiusTemp);
+  tempurature.innerHTML= Math.round(response.data.main.temp);
   let city= document.querySelector("#city");
   city.innerHTML= response.data.name;
   let description= document.querySelector("#description")
@@ -77,7 +78,7 @@ function displayTempurature (response)
   let iconElement =document.querySelector("#icon");
   iconElement.setAttribute("alt", response.data.weather[0].description);
   iconElement.setAttribute("src", `Images/${response.data.weather[0].icon}.png`);
-  celsiusTemp =response.data.main.temp
+ 
 
   getForecast(response.data.coord);
 
@@ -88,7 +89,7 @@ function displayTempurature (response)
 function search (city)
 {
   let apiKey= "5dad882459b91a0858b2f948bcddd14d";
-  let apiUrl= `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiUrl= `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayTempurature);
 }
 
@@ -102,32 +103,14 @@ h1.innerHTML = `Accioweathero ${cityElement.value}!`;
 
 }
 
-function showFahrenheitTemp(event)
-{
-  event.preventDefault();
-  let fahrenheittempurature= (celsiusTemp * 9)/ 5 + 32;
-  let tempurature = document.querySelector("#temp");
-  tempurature.innerHTML= Math.round(fahrenheittempurature);
-}
 
-function showCelsiusTemp(event)
-{
-  event.preventDefault();
-  let tempurature = document.querySelector("#temp");
-  tempurature.innerHTML = Math.round(celsiusTemp);
-}
 
-let celsiusTemp = null;
+
 
 
 
 let form = document.querySelector("#search-city");
 form.addEventListener("submit", handleSubmit);
 
-let celsiusLink= document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", showCelsiusTemp);
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", showFahrenheitTemp);
 
 search("Tucson");
